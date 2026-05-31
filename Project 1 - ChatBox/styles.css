@@ -1,0 +1,236 @@
+:root {
+  --bg-start: #ecf8ef;
+  --bg-mid: #d6eedb;
+  --bg-end: #c7e3cc;
+  --card: #ffffff;
+  --text: #193125;
+  --muted: #4f6d5a;
+  --accent: #2f7d4f;
+  --accent-strong: #255f3d;
+  --bubble-user: #1f6b43;
+  --bubble-bot: #e8f6ec;
+  --ring: rgba(47, 125, 79, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 14% 18%, rgba(136, 201, 152, 0.42) 0%, transparent 42%),
+    radial-gradient(circle at 84% 84%, rgba(103, 181, 124, 0.34) 0%, transparent 40%),
+    linear-gradient(145deg, #e4f7e9 0%, #cfeccf 45%, #b5dfbe 100%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.chat-card {
+  width: min(760px, 100%);
+  height: min(760px, 92vh);
+  background: var(--card);
+  border: 1px solid #d7e7dc;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(18, 52, 33, 0.14);
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+.leaf-watermark {
+  position: absolute;
+  width: 88px;
+  height: 95px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.leaf-main-vein {
+  fill: none;
+  stroke: rgba(23, 84, 42, 0.62);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.leaf-side-vein {
+  fill: none;
+  stroke: rgba(33, 96, 51, 0.48);
+  stroke-width: 1.35;
+  stroke-linecap: round;
+}
+
+.leaf-stem {
+  fill: none;
+  stroke: rgba(28, 88, 46, 0.56);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+}
+
+.chat-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #d6e9db;
+  background: linear-gradient(90deg, #f4fcf6 0%, #e8f5eb 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 1.8vw, 1.6rem);
+  letter-spacing: 0.02em;
+}
+
+.chat-header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.chat-window {
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.msg {
+  max-width: 82%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  line-height: 1.45;
+  font-size: 0.96rem;
+  animation: rise 0.22s ease;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: var(--bubble-user);
+  color: #f7fbff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.bot {
+  align-self: flex-start;
+  background: var(--bubble-bot);
+  border: 1px solid #c9dfcf;
+  border-bottom-left-radius: 4px;
+}
+
+.msg.bot.typing::after {
+  content: "|";
+  margin-left: 2px;
+  color: rgba(23, 84, 42, 0.6);
+  animation: caret-blink 0.8s step-end infinite;
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid #d6e9db;
+  background: #f2fbf4;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-form input {
+  border: 1px solid #bfd8c7;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+}
+
+.chat-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.chat-form button {
+  border: 1px solid #245c3b;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.chat-form button:hover {
+  transform: translateY(-1px);
+  background: var(--accent-strong);
+}
+
+.chat-form button:disabled,
+.chat-form input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .chat-card {
+    height: 95vh;
+    border-radius: 16px;
+  }
+
+  .chat-header,
+  .chat-form {
+    padding: 14px;
+  }
+}

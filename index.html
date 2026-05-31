@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday AI Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient-grid"></div>
+    <div class="ambient-glow ambient-glow-left"></div>
+    <div class="ambient-glow ambient-glow-right"></div>
+
+    <section class="zip-intro" id="zip-intro" aria-label="Birthday surprise entrance">
+      <div class="intro-lights" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="zip-curtain zip-left" aria-hidden="true"></div>
+      <div class="zip-curtain zip-right" aria-hidden="true"></div>
+      <div class="zip-seam" aria-hidden="true">
+        <div class="zip-seam-tape zip-seam-tape-left"></div>
+        <div class="zip-seam-teeth"></div>
+        <div class="zip-seam-tape zip-seam-tape-right"></div>
+        <button id="zip-slider" class="zip-slider" type="button" aria-label="Pull zipper to open">
+          <span class="zip-slider-grip"></span>
+          <span class="zip-slider-ring"></span>
+        </button>
+      </div>
+      <div class="zip-blast" id="zip-blast" aria-hidden="true"></div>
+    </section>
+
+    <section class="celebration-slide" id="celebration-slide" aria-label="Birthday gallery reveal" hidden>
+      <div class="celebration-overlay"></div>
+      <div class="celebration-content">
+        <h2 class="cele-name">Wishes Picture Cards for you</h2>
+
+        <div class="cele-stage">
+          <article class="cele-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Present%20box.jpg" alt="Gift box with ribbon" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Balloon%20on%20a%20children%27s%20birthday%20party.jpg" alt="Birthday party balloons" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Colorful fireworks in the night sky" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Birthday%20party%20decoration.jpg" alt="Birthday decoration setup" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="./assets/balloon-28.svg" alt="Number 28 birthday balloon celebration" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Balloon%20%26%20Party%20Poppers%20%2816346732182%29.jpg" alt="Party poppers and celebration setup" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="https://images.pexels.com/photos/4397877/pexels-photo-4397877.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Stacked gift boxes" loading="lazy" />
+          </article>
+          <article class="cele-card">
+            <img src="https://images.pexels.com/photos/36705454/pexels-photo-36705454.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Colorful balloons in sky" loading="lazy" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="classic-cake-slide" id="classic-cake-slide" aria-label="Classic cake reveal" hidden>
+      <div class="classic-cake-overlay"></div>
+      <div class="classic-cake-content">
+        <h2 class="classic-title">Happiest Birthday Maliha Tariq</h2>
+        <p class="classic-subtitle">Click lighter to blow the candles.</p>
+
+        <div class="classic-cake-stage">
+          <div class="classic-blast" id="classic-blast" aria-hidden="true"></div>
+          <div class="cake-shadow"></div>
+          <div class="cake-base"></div>
+          <div class="cake-tier cake-tier-bottom"></div>
+          <div class="cake-tier cake-tier-mid"></div>
+          <div class="cake-tier cake-tier-top"></div>
+          <div class="cake-icing cake-icing-bottom"></div>
+          <div class="cake-icing cake-icing-mid"></div>
+          <div class="cake-icing cake-icing-top"></div>
+          <div class="classic-candles" aria-hidden="true">
+            <span class="classic-candle"><span class="classic-flame"></span></span>
+            <span class="classic-candle"><span class="classic-flame"></span></span>
+            <span class="classic-candle"><span class="classic-flame"></span></span>
+            <span class="classic-candle"><span class="classic-flame"></span></span>
+            <span class="classic-candle"><span class="classic-flame"></span></span>
+          </div>
+        </div>
+
+        <button id="classic-candle-btn" class="candle-btn" type="button">
+          <span class="lighter-icon" aria-hidden="true"></span>
+          Blow Candle, Open AI
+        </button>
+      </div>
+    </section>
+
+    <main class="app-shell pre-intro" id="app-shell">
+      <header class="top-bar">
+        <div>
+          <p class="kicker">Day of Happiness</p>
+          <h1>Best Wishes for You</h1>
+        </div>
+      </header>
+
+      <section class="console-grid">
+        <section class="orb-module" aria-live="polite">
+          <div class="orb-shell robot-shell" id="orb-shell">
+            <div class="stage-halo"></div>
+            <div class="mini-robot-scale">
+              <div class="mini-robot">
+                <div class="robot-head-shell">
+                  <span class="ear ear-left"></span>
+                  <span class="ear ear-right"></span>
+                  <div class="robot-head-inner">
+                    <div class="robot-face">
+                      <div class="robot-eyes">
+                        <span class="eye eye-left"></span>
+                        <span class="eye eye-right"></span>
+                      </div>
+                      <div class="robot-voice">
+                        <div class="wave-bars" id="wave-bars"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="robot-neck"></div>
+                <div class="robot-body-core">
+                  <div class="robot-chest-panel"></div>
+                  <div class="robot-leg leg-left"></div>
+                  <div class="robot-leg leg-right"></div>
+                  <div class="robot-foot foot-left"></div>
+                  <div class="robot-foot foot-right"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 class="birthday-name" id="birthday-name"></h2>
+          <p class="birthday-message" id="birthday-message">Dearest Aapi Jaan</p>
+          <p class="orb-label" id="orb-label">AI CORE: READ</p>
+        </section>
+      </section>
+
+      <section class="controls">
+        <button id="start-btn" class="btn btn-primary">Play Birthday Wish</button>
+        <button id="final-word-btn" class="btn">Final Words</button>
+        <button id="pause-btn" class="btn">Pause/Resume Voice</button>
+      </section>
+    </main>
+
+    <section class="final-word-screen" id="final-word-screen" aria-label="Final birthday message" hidden>
+      <div class="final-word-backdrop"></div>
+      <div class="final-word-card">
+        <p class="final-word-kicker">From Your Younger Brother Muhammad, With Endless Love And Duas</p>
+        <h2 class="final-word-title">Final Words</h2>
+        <p class="final-word-typed" id="final-word-typed"></p>
+        <button id="final-word-close-btn" class="btn final-word-close-btn" type="button">Back To Robot UI</button>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
