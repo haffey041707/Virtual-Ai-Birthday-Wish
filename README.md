@@ -19,13 +19,19 @@ If port `5000` is busy, the app automatically starts on the next free port (`500
 
 ## Where To Edit Content
 
-Edit these Python variables inside `app.py`:
+Edit these Python variables inside `birthday_config.py`:
 
 - `APP_CONFIG` for name/relation
 - `BIRTHDAY_SEQUENCE` for all spoken lines
 - `MIC_REPLIES` for voice reply rules
 
 The frontend auto-loads this data from `/api/config`.
+On Vercel, `api/config.py` serves the same config as a Python Function.
+
+## Deploy To Vercel
+
+Create or link the Vercel project as `birthday-gift-behan`.
+Vercel can detect the Flask app from `app.py`; no build command is required.
 
 ## Notes
 
@@ -34,3 +40,4 @@ The frontend auto-loads this data from `/api/config`.
 - Voice output still uses browser Speech Synthesis (best in Chrome/Edge).
 - The first screen is an unzip intro. Pull/click the zipper handle to reveal the main UI.
 - On macOS you can also double-click `run.command` to launch quickly.
+- Gallery images are local real photos from Pexels, selected to avoid people/persons.
